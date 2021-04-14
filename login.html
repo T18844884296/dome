@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <style>
+        input{
+            disply:block;
+            width:200px;
+            height:20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>用户登录</h2>
+    <from action="@{/user/login}">
+        用户名：<input type="text" name="name" id="uname">
+        密码：<input type="text" name="password" id="password">
+        <button id="btn">登录</button>
+    </from>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+   $("#btn").click(function(){
+	   console.log(1);
+       console.log($("#uname").val())
+       $.ajax({
+           url:"http://localhost:8080/user/login",
+           type:"get",
+           data:{
+               name:$("#uname").val(),
+               password:$("#password").val()
+           },
+           success:function(e){
+               console.log(e)
+
+           }
+       })
+
+   })
+
+
+</script>
+</html>
+
